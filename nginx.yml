@@ -1,0 +1,19 @@
+---
+- name: Install Nginx webserver
+  hosts: ubuntu
+  become: yes
+
+  tasks:
+
+  - name: Update
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+      force_apt_get: yes
+
+  - name: Install Nginx webserver
+    apt: name=nginx state=latest
+
+  - name: Start Nginx and enable
+    service: name=nginx state=started enabled=yes
+    

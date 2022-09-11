@@ -1,0 +1,9 @@
+---
+- name: Test connection
+  hosts: ubuntu
+  become: yes
+
+  tasks:
+
+  - name: Ping on webserver
+    ping:
